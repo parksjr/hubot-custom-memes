@@ -12,8 +12,11 @@ describe 'custom-memes', ->
 
     require('../src/custom-memes')(@robot)
 
-  it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/hello/)
+  it 'registers a respond listener for meme list', ->
+    expect(@robot.respond).to.have.been.calledWith(/meme list/i)
 
-  it 'registers a hear listener', ->
-    expect(@robot.hear).to.have.been.calledWith(/orly/)
+  it 'registers a respond listener for meme me', ->
+    expect(@robot.respond).to.have.been.calledWith(/meme (?:me )?(\w+) \"([^"]+)\" \"([^"]+)\"$/i)
+
+  it 'registers a respond listener for meme example', ->
+    expect(@robot.respond).to.have.been.calledWith(/meme example$/i)
