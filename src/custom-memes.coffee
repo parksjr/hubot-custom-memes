@@ -45,7 +45,7 @@ module.exports = (robot) ->
       memelist += "#{code} - #{name}\n" for code, name of custom_memes
       msg.send memelist
 
-  robot.respond /meme (?:me )?(\w+) \"([^"]+)\" \"([^"]+)\"$/i, (msg) ->
+  robot.respond /meme (?:me )?(\w+) (?:\"|“)([^"”“]+)(?:\"|”) (?:\"|“)([^"”“]+)(?:\"|”)$/i, (msg) ->
     msg.http(memegenlink).get() (err, res, body) ->
       custom_memes = getMemes(body)
       key = msg.match[1].toLowerCase()
