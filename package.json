@@ -4,13 +4,18 @@
   "version": "0.0.2",
   "author": "parks.jr@gmail.com",
   "license": "MIT",
-  "keywords": "hubot, hubot-scripts, memes, custom-memes",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "memes",
+    "custom memes"
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-custom-memes.git"
+    "url": "git://github.com/parksjr/hubot-custom-memes.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-custom-memes/issues"
+    "url": "https://github.com/parksjr/hubot-custom-memes/issues"
   },
   "dependencies": {},
   "peerDependencies": {
