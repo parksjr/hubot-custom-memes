@@ -1,7 +1,6 @@
 # hubot-custom-memes
-
-A hubot script for generating custom memes with special commands
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/41fce71444f54a06a31ac7ca053ab380)](https://www.codacy.com/app/mike_10/hubot-custom-memes?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=parksjr/hubot-custom-memes&amp;utm_campaign=Badge_Grade)
+A hubot script for generating custom memes with special commands
 
 See [`src/custom-memes.coffee`](src/custom-memes.coffee) for full documentation.
 
