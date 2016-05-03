@@ -16,7 +16,7 @@ describe 'custom-memes', ->
     expect(@robot.respond).to.have.been.calledWith(/meme list/i)
 
   it 'registers a respond listener for meme me', ->
-    expect(@robot.respond).to.have.been.calledWith(/meme (?:me )?(\w+) \"([^"]+)\" \"([^"]+)\"$/i)
+    expect(@robot.respond).to.have.been.calledWith(/meme (?:me )?(\w+) (?:\"|“)([^"”“]+)(?:\"|”) (?:\"|“)([^"”“]+)(?:\"|”)$/i)
 
   it 'registers a respond listener for meme example', ->
     expect(@robot.respond).to.have.been.calledWith(/meme example$/i)
