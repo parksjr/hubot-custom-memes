@@ -24,10 +24,10 @@ Then add **hubot-custom-memes** to your `external-scripts.json`:
 ```
 user1>> hubot meme list
 hubot>> tenguy - 10 Guy
-				afraid - Afraid to Ask Andy
-				aag - Ancient Aliens Guy
-				biw - Baby Insanity Wolf
-				...
+		afraid - Afraid to Ask Andy
+		aag - Ancient Aliens Guy
+		biw - Baby Insanity Wolf
+		...
 ```
 
 ```
