@@ -1,22 +1,23 @@
-chai = require 'chai'
-sinon = require 'sinon'
-chai.use require 'sinon-chai'
-
-expect = chai.expect
+Helper = require 'hubot-test-helper'
+expect = require('chai').expect
+helper = new Helper '../src/custom-memes.coffee'
 
 describe 'custom-memes', ->
   beforeEach ->
-    @robot =
-      respond: sinon.spy()
-      hear: sinon.spy()
-
-    require('../src/custom-memes')(@robot)
-
-  it 'registers a respond listener for meme list', ->
-    expect(@robot.respond).to.have.been.calledWith(/meme list/i)
-
-  it 'registers a respond listener for meme me', ->
-    expect(@robot.respond).to.have.been.calledWith(/meme (?:me )?(\w+) (?:\"|“)([^"”“]+)(?:\"|”) (?:\"|“)([^"”“]+)(?:\"|”)$/i)
-
-  it 'registers a respond listener for meme example', ->
-    expect(@robot.respond).to.have.been.calledWith(/meme example$/i)
+    @room = helper.createRoom({httpd: false})
+  context 'user wants the list of memes', ->
+    beforeEach ->
+      @room.user.say 'bob', 'hubot meme list'
+    it 'should respond with a list of memes', ->
+      expect(@room.messages).to.eql [
+        ['bob', 'hubot meme list']
+        ['hubot', 'list of memes']
+      ]
+  context 'user wants a keanu meme', ->
+    beforeEach ->
+      @room.user.say 'andrew', 'hubot meme keanu "-" "keanu"'
+    it 'should respond with a keanu meme', ->
+      expect(@room.messages).to.eql [
+        ['andrew', 'hubot meme keanu "-" "keanu"']
+        ['hubot', 'http://memegen.link/keanu/-/keanu.jpg']
+      ]

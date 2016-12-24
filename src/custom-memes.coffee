@@ -15,7 +15,7 @@
 # Author:
 #   Mike Parks - parks.jr@gmail.com
 
-memegenlink = "http://memegen.link/templates/"
+memegenlink = "https://memegen.link/api/templates/"
 examples = [
   {key: "morpheus", top: "what if i told you", bottom: "there is no meme"},
   {key: "aag", top:" ", bottom: "aliens"},
@@ -46,13 +46,11 @@ module.exports = (robot) ->
       msg.send memelist
 
   robot.respond /meme (?:me )?(\w+) (?:\"|“)([^"”“]+)(?:\"|”) (?:\"|“)([^"”“]+)(?:\"|”)$/i, (msg) ->
-    msg.http(memegenlink).get() (err, res, body) ->
-      custom_memes = getMemes(body)
-      key = msg.match[1].toLowerCase()
-      meme = if key of custom_memes then key else 'doge'
-      top = msg.match[2].replace(/\s+/g, '-').trim()
-      bottom = msg.match[3].replace(/\s+/g, '-').trim()
-      msg.send "http://memegen.link/#{meme}/#{encode(top)}/#{encode(bottom)}.jpg"
+    key = msg.match[1].toLowerCase()
+    meme = key # if key of custom_memes then key else 'doge'
+    top = msg.match[2].replace(/\s+/g, '-').trim()
+    bottom = msg.match[3].replace(/\s+/g, '-').trim()
+    msg.send "http://memegen.link/#{meme}/#{encode(top)}/#{encode(bottom)}.jpg"
 
   robot.respond /meme example$/i, (msg) ->
     example = msg.random examples
