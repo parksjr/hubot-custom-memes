@@ -1,7 +1,7 @@
 {
   "name": "hubot-custom-memes",
   "description": "A hubot script for generating custom memes with special commands",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "parks.jr@gmail.com",
   "license": "MIT",
   "keywords": [
